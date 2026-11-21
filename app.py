@@ -27,8 +27,14 @@ except LookupError:
     nltk.download("punkt_tab")
 
 # Encoder reads the English tokens, decoder generates the target-language tokens
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, src_lang="eng_Latn")
-model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
+# Load the already downloaded model from the local Hugging Face cache. This
+# avoids a Hub request (and its unauthenticated-request warning) at startup.
+tokenizer = AutoTokenizer.from_pretrained(
+    MODEL_NAME, src_lang="eng_Latn", local_files_only=True
+)
+model = AutoModelForSeq2SeqLM.from_pretrained(
+    MODEL_NAME, local_files_only=True
+)
 
 # The frontend files live beside app.py, so serve assets from the project root.
 app = Flask(__name__, static_folder=".", static_url_path="")
