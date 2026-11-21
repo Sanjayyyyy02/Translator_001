@@ -1,0 +1,68 @@
+/* System fonts only: no internet needed. Noto/system fonts cover Indic scripts. */
+:root {
+  --bg: #faf8f3;
+  --ink: #1d2b2f;
+  --teal: #0f4c5c;
+  --saffron: #e9a23b;
+  --line: #cfd8d6;
+  --error: #b3261e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Noto Sans", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+main { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+
+h1 { font-size: 1.5rem; color: var(--teal); margin: 0 0 20px; }
+h2 { font-size: 1.1rem; margin: 0 0 8px; }
+
+label { display: block; margin: 16px 0 6px; font-weight: 600; }
+
+textarea, select {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+}
+
+textarea:focus, select:focus, button:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 1px;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  background: var(--teal);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled { opacity: 0.6; cursor: progress; }
+
+#error { color: var(--error); font-weight: 600; }
+
+#result {
+  margin-top: 24px;
+  padding: 16px;
+  background: #fff;
+  border-left: 5px solid var(--saffron);
+}
+
+#output { font-size: 1.2rem; margin: 0 0 12px; white-space: pre-wrap; }
+#bleu { margin: 0; color: var(--teal); font-weight: 600; }
